@@ -2,10 +2,6 @@
 
 namespace App\Providers;
 
-use App\Repositories\Contracts\Admin\EventRepositoryInterface;
-use App\Services\Contracts\Admin\EventReminderServiceInterface;
-use App\Repositories\Admin\EventRepository;
-use App\Services\Admin\EventReminderService;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 
@@ -17,8 +13,20 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         //Admin services
-        $this->app->bind(EventRepositoryInterface::class, EventRepository::class);
-        $this->app->bind(EventReminderServiceInterface::class, EventReminderService::class);
+        $this->app->bind(
+            \App\Repositories\Contracts\Admin\EventRepositoryInterface::class,
+            \App\Repositories\Admin\EventRepository::class
+        );
+        $this->app->bind(
+            \App\Services\Contracts\Admin\EventReminderServiceInterface::class,
+            \App\Services\Admin\EventReminderService::class
+        );
+
+        //Api services
+        $this->app->bind(
+            \App\Repositories\Contracts\Api\EventRepositoryInterface::class,
+            \App\Repositories\Api\EventRepository::class
+        );
     }
 
     /**

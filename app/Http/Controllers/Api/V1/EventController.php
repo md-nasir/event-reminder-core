@@ -1,12 +1,11 @@
 <?php
 
-namespace EventReminder\Http\Controllers\Api\V1;
+namespace App\Http\Controllers\Api\V1;
 
-use EventReminder\Http\Controllers\Api\BaseController;
-use EventReminder\Services\Contracts\EventServiceInterface;
-use EventReminder\Http\Resources\Event\EventCollection;
-use EventReminder\Http\Requests\EventRequest;
+use App\Http\Controllers\Api\BaseController;
 use Illuminate\Support\Facades\Log;
+use App\Repositories\Contracts\Api\EventRepositoryInterface;
+use App\Http\Resources\Event\EventCollection;
 
 /**
  * Class EventController
@@ -15,51 +14,35 @@ use Illuminate\Support\Facades\Log;
 class EventController extends BaseController
 {
     /**
-     * @var EventServiceInterface
+     * @var EventRepositoryInterface
      */
-    protected $eventService;
+    protected $eventRepository;
 
     /**
      * EventController constructor.
-     * @param EventServiceInterface $eventService
+     * @param EventRepositoryInterface $eventRepository
      */
-    public function __construct(EventServiceInterface $eventService)
+    public function __construct(EventRepositoryInterface $eventRepository)
     {
-        $this->eventService = $eventService;
+        $this->eventRepository = $eventRepository;
     }
 
-    public function index()
+    public function upcomingEvents()
     {
         try {
-            $events = $this->eventService->getAllEvents();
-            $message = $events->isEmpty() ? 'List is empty' : 'Data fetched successfully';
-            return $this->successResponse(new EventCollection($events), $message);
+            $events = $this->eventRepository->upcomingEvents();
+            return $this->successResponse(new EventCollection($events));
         } catch (\Exception $e) {
             Log::error($this->logPrefix() . ' - ' . $e->getMessage(), ['exception' => $e]);
             return $this->errorResponse();
         }
-
     }
 
-    public
-    function upcoming()
-    {
-        return response()->json($this->eventService->getUpcomingEvents());
-    }
-
-    public
-    function completed()
-    {
-        return response()->json($this->eventService->getCompletedEvents());
-    }
-
-    public
-    function store(EventRequest $request)
+    public function completedEvents()
     {
         try {
-            $events = $this->eventService->getAllEvents();
-            $message = $events->isEmpty() ? 'List is empty' : 'Data fetched successfully';
-            return $this->successResponse(new EventCollection($events), $message);
+            $events = $this->eventRepository->upcomingEvents();
+            return $this->successResponse(new EventCollection($events));
         } catch (\Exception $e) {
             Log::error($this->logPrefix() . ' - ' . $e->getMessage(), ['exception' => $e]);
             return $this->errorResponse();
