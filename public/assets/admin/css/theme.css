@@ -1,0 +1,180 @@
+.color-logo-red-dark {
+    color: #860606 !important;
+}
+
+.color-logo-green {
+    color: #027138 !important;
+}
+
+.bg-logo-green {
+    color: #027138 !important;
+}
+
+.page-title,
+.sidebar .nav .nav-item > .nav-link i,
+.sidebar .nav .nav-item > .nav-link .menu-title,
+.sidebar .nav .nav-item > .nav-link .menu-arrow,
+.sub-menu .nav-item > .nav-link {
+    color: #027138 !important;
+}
+
+.sidebar .nav .nav-item:hover > .nav-link, .sub-menu .nav-item:hover > .nav-link {
+    font-weight: 600;
+}
+
+.sidebar li.active {
+    background-color: #027138;
+}
+
+.sidebar .nav .nav-item.active > .nav-link i,
+.sidebar .nav .nav-item.active > .nav-link .menu-title,
+.sidebar .nav .nav-item.active > .nav-link .menu-arrow,
+.nav-item.active .sub-menu .nav-item > .nav-link.active, .nav-item.active .sub-menu .nav-item > .nav-link.active i {
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+.sidebar .nav.sub-menu {
+    padding-left: 2.5rem;
+}
+
+.sidebar .nav.sub-menu .nav-item::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: transparent;
+    margin-top: 15px;
+}
+
+.nav-item.active .sub-menu .nav-item > .nav-link, .nav-item.active .sub-menu .nav-item > .nav-link i {
+    color: #ffffff !important;
+}
+
+.content-wrapper {
+    background-color: #ffffff !important;
+}
+
+.footer {
+    background: #ebf5eb !important;
+    padding: 15px 1rem;
+}
+
+.btn-primary {
+    background-color: #027138;
+    border-color: #0a7c41;
+}
+
+.btn-primary:hover {
+    background-color: #027138;
+    border-color: #0a7c41;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+    box-shadow: 0 0 0 0.2rem #027138;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+    color: #fff;
+    background-color: #17a55c;
+    border-color: #17a55c;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+    background-color: #036432;
+    border-color: #036432;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem #036432;
+}
+
+
+.line-through {
+    text-decoration: line-through;
+}
+
+.page-title .badge {
+    font-size: 80% !important;
+}
+
+.form-group span.required-badge, span.required-badge {
+    color: #c60404;
+}
+
+.action .btn {
+    padding: 5px 10px !important;
+}
+
+.table thead th {
+    font-size: .9rem !important;
+    padding: .7rem !important;
+}
+
+.table td {
+    line-height: 1.3;
+    color: #000000d4;
+}
+
+select.form-control:focus::-ms-value, .dataTables_wrapper select:focus::-ms-value {
+    color: #232426 !important;
+}
+
+select.form-control, .dataTables_wrapper select {
+    min-height: 25px;
+    padding: 10px 5px !important;
+    color: #232426 !important;
+    border-radius: 0;
+    font-size: 13px;
+}
+
+.export-form {
+    position: absolute;
+    right: 5px;
+    bottom: -2px;
+    font-size: 13px;
+    color: #535252;
+}
+
+.export-form select {
+    background: transparent;
+    border: none;
+    font-weight: 600;
+}
+
+.edit-image {
+    height: 100px;
+    width: 100%;
+}
+
+.edit-image img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+/* select2 search css */
+.select2-container--default .select2-selection--multiple,.select2-container--default.select2-container--focus .select2-selection--multiple, .select_search .select2-container--default .select2-selection--single {
+    background-color: #fff;
+    border: 1px solid #e7e5e5;
+    border-radius: inherit;
+    width: 100%;
+    height: 38px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.select_search .select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 36px;
+    font-size: 13px;
+}
+
+.action-min-width{
+    width: 130px;
+    min-width: 130px;
+}
+.min-width-25{
+    width: 25%;
+    min-width: 200px;
+}
