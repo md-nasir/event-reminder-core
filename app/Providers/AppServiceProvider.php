@@ -3,10 +3,11 @@
 namespace App\Providers;
 
 use App\Repositories\Contracts\Admin\EventRepositoryInterface;
-use App\Services\Contracts\EventServiceInterface;
+use App\Services\Contracts\Admin\EventReminderServiceInterface;
 use App\Repositories\Admin\EventRepository;
-use App\Services\Admin\EventService;
+use App\Services\Admin\EventReminderService;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,7 +18,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //Admin services
         $this->app->bind(EventRepositoryInterface::class, EventRepository::class);
-        $this->app->bind(EventServiceInterface::class, EventService::class);
+        $this->app->bind(EventReminderServiceInterface::class, EventReminderService::class);
     }
 
     /**
@@ -28,5 +29,6 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('admin.*', function ($view) {
             $view->with(['perPageItems' => [10, 25, 50, 100]]);
         });
+        Paginator::useBootstrap();
     }
 }

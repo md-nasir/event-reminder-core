@@ -70,8 +70,8 @@
                                             <td>{{ $event->date }}</td>
                                             <td>{{ $event->time }}</td>
                                             <td class="action">
-                                                <a href="{{ route('events.show', $event->id) }}"
-                                                    class="btn btn-sm btn-primary" title="View event">
+                                                <a href="{{ route('events.reminder.create', $event->id) }}"
+                                                    class="btn btn-sm btn-primary" title="Sent Reminder">
                                                     <i class="mdi mdi-eye"></i>
                                                 </a>
 {{--                                                @if (hasPermission('events.edit'))--}}

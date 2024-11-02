@@ -4,7 +4,7 @@ namespace App\Exceptions\Services;
 
 use Exception;
 
-class EventServiceException extends Exception
+class EventReminderServiceException extends Exception
 {
     //
 }

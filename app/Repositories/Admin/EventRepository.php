@@ -23,6 +23,10 @@ class EventRepository implements EventRepositoryInterface
         return $events->paginate($perPage);
     }
 
+    public function findById(int $id)
+    {
+        return Event::findOrFail($id);
+    }
 
     public function create(array $data)
     {

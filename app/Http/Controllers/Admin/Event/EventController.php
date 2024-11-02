@@ -34,6 +34,17 @@ class EventController extends Controller
         $this->eventRepository = $eventRepository;
     }
 
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        return view(
+            $this->template('index'),
+            ['events' => $this->eventRepository->getAll()]
+        );
+    }
+
     public function create()
     {
         return view($this->template('create'));
