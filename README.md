@@ -59,8 +59,9 @@ For the frontend, you can set up the headless Vue application found here:
 [Event Reminder PWA Frontend](https://github.com/md-nasir/event-reminder-pwa)
 
 ## Screenshots
-Screenshots of the application are included in the `/screenshots` directory.
 
----
+![Send Event Reminder](Screenshots/Send Event Reminder.png)
+![Send Event Bulk Reminder](Screenshots/Bulk Reminder.png)
+![Event CRUD](Screenshots/Event CRUD.png)
 
 Enjoy using the Event Reminder Application Core!
