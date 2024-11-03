@@ -13,13 +13,14 @@ class EventsFilter implements FilterInterface
 {
 
     /**
-     * @param Request $request
-     * @param $modelObject
-     * @return mixed
+     * @param Request $modelObject
+     * @return Request|mixed
      */
-    public function filter(Request $request, $modelObject)
+    public function filter($modelObject)
     {
-
+        if (!empty(request()->name)) {
+            $modelObject = $modelObject->where('title', 'like', '%' . request()->name . '%');
+        }
         return $modelObject;
     }
 }

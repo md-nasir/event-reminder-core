@@ -30,15 +30,4 @@ class Event extends Model
         'created_by_id',
         'updated_by_id',
     ];
-
-    public function getFormattedStartTimeAttribute()
-    {
-        return Carbon::parse($this->start_time)->format('h:i A');
-    }
-
-    public function getFormattedEndTimeAttribute()
-    {
-        return Carbon::parse($this->end_time)->format('h:i A');
-    }
-
 }

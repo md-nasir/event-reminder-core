@@ -10,7 +10,6 @@ use App\Traits\LogSupport;
 use App\Traits\Template;
 use Exception;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Http\Request;
 use App\Http\Requests\Event\BulkReminderRequest;
 use App\Http\Requests\Event\ReminderRequest;
 
@@ -46,15 +45,13 @@ class EventReminderController extends Controller
         $this->eventReminderService = $eventReminderService;
     }
 
-    public
-    function create(int $eventId)
+    public function create(int $eventId)
     {
         $event = $this->eventRepository->findById($eventId);
         return view($this->template('create'), compact('event'));
     }
 
-    public
-    function send(ReminderRequest $request, $eventId)
+    public function send(ReminderRequest $request, $eventId)
     {
         try {
             $this->eventReminderService->send($request->all());
@@ -65,14 +62,12 @@ class EventReminderController extends Controller
         }
     }
 
-    public
-    function bulkCreate()
+    public function bulkCreate()
     {
         return view($this->template('bulk-create'));
     }
 
-    public
-    function bulkSend(BulkReminderRequest $request)
+    public function bulkSend(BulkReminderRequest $request)
     {
         try {
             $path = $request->file('reminder_file')->getRealPath();

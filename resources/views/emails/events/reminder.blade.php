@@ -2,17 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Event Reminder</title>
+    <title>{{ $reminderData['title'] }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        p {
+            margin: 10px 0;
+        }
+    </style>
 </head>
 <body>
-<p><strong>Dear concern,</strong></p>
-<p>Description</p>
-{{--<p>Bidding site url: <a href="{{ $data['url'] }}">{{ $data['url'] }}</a></p>--}}
-{{--<p>More details, please <a href="{{ $data['details_url'] }}">click here</a></p>--}}
-{{--<p>From: {{$data['email']}}</p>--}}
+<p><strong>Dear Concern,</strong></p>
+<p>{{ $reminderData['content'] }}</p>
 </body>
-
 </html>

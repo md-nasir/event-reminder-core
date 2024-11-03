@@ -6,14 +6,9 @@ use Illuminate\Http\Request;
 
 /**
  * Interface FilterInterface
- * @package App\Filters
+ * @package App\Filters\Contracts
  */
 interface FilterInterface
 {
-    /**
-     * @param Request $request
-     * @param $modelObject
-     * @return mixed
-     */
-    public function filter(Request $request, $modelObject);
+    public function filter($modelObject);
 }

@@ -2,25 +2,22 @@
 
 namespace App\Repositories\Admin;
 
+use App\Filters\Admin\EventsFilter;
 use App\Repositories\Contracts\Admin\EventRepositoryInterface;
 use App\Models\Event;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class EventRepository
  * @package App\Repositories\Admin
  */
-class EventRepository implements EventRepositoryInterface
+class EventRepository extends EventsFilter implements EventRepositoryInterface
 {
 
-    public function getAll(array $filters = [], int $perPage = 10)
+    public function getAll()
     {
-        $events = Event::latest();
-
-        if (!empty($filters['name'])) {
-            $events->where('name', 'LIKE', '%' . $filters['name'] . '%');
-        }
-
-        return $events->paginate($perPage);
+        $events = $this->filter(Event::latest());
+        return $events->paginate(request()->per_page ?: 10);
     }
 
     public function findById(int $id)
@@ -30,15 +27,15 @@ class EventRepository implements EventRepositoryInterface
 
     public function create(array $data)
     {
-        $data['code'] = $this->generateUniqueEventId();
-        $data['created_by_id'] = 3;
-        $data['updated_by_id'] = 3;
+        $data['code'] = getEventUniqId();
+        $data['created_by_id'] = Auth::id();
+        $data['updated_by_id'] = Auth::id();
         return Event::create($data);
     }
 
-
     public function update(int $id, array $data)
     {
+        $data['updated_by_id'] = Auth::id();
         return Event::where('id', $id)->update($data);
     }
 
@@ -47,13 +44,4 @@ class EventRepository implements EventRepositoryInterface
         return Event::destroy($id);
     }
 
-    /**
-     * Generate a unique event ID.
-     *
-     * @return string
-     */
-    protected function generateUniqueEventId(): string
-    {
-        return 'EVT-' . strtoupper(uniqid());
-    }
 }
