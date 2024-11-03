@@ -60,8 +60,8 @@ For the frontend, you can set up the headless Vue application found here:
 
 ## Screenshots
 
-![Send Event Reminder](Screenshots/Send Event Reminder.png)
-![Send Event Bulk Reminder](Screenshots/Bulk Reminder.png)
-![Event CRUD](Screenshots/Event CRUD.png)
+![Send Event Reminder](Screenshots/Send%20Event%20Reminder.png)
+![Send Event Bulk Reminder](Screenshots/Bulk%20Reminder.png)
+![Event CRUD](Screenshots/Event%20CRUD.png)
 
 Enjoy using the Event Reminder Application Core!
