@@ -21,7 +21,7 @@
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                     <img src="{{ asset('assets/theme/images/user-avatar.png') }}" alt="profile"/>
                     <span class="nav-profile-name color-logo-green">
-{{--                       {{ auth()->user()->name }}--}}
+                       {{ auth()->user()->name }}
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
@@ -31,9 +31,9 @@
                         <i class="mdi mdi-logout text-primary"></i>
                         Logout
                     </a>
-{{--                    <form id="logout-form" method="POST" action="{{ route('logout') }}">--}}
-{{--                        @csrf--}}
-{{--                    </form>--}}
+                    <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                        @csrf
+                    </form>
                 </div>
             </li>
         </ul>

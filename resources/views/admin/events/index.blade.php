@@ -57,7 +57,9 @@
                                     <th class="min-width-25">Name</th>
                                     <th>Start Date</th>
                                     <th>End Date</th>
-                                    <th class="action-min-width">Action</th>
+                                    <th>Timezone</th>
+                                    <th>Location</th>
+                                    <th colspan="2" class="action-min-width">Action</th>
                                 </tr>
                             </thead>
 
@@ -67,13 +69,16 @@
                                         <tr>
                                             <td class="text-center">{{ $loop->iteration }}</td>
                                             <td>{{ $event->title }}</td>
-                                            <td>{{ $event->date }}</td>
-                                            <td>{{ $event->time }}</td>
+                                            <td>{{ $event->start_date }}</td>
+                                            <td>{{ $event->start_time }}</td>
+                                            <td>{{ $event->time_zone }}</td>
+                                            <td>{{ $event->location }}</td>
                                             <td class="action">
                                                 <a href="{{ route('events.reminder.create', $event->id) }}"
-                                                    class="btn btn-sm btn-primary" title="Sent Reminder">
-                                                    <i class="mdi mdi-eye"></i>
+                                                   class="btn btn-sm btn-warning" title="Sent Reminder">Sent Reminder
                                                 </a>
+                                            </td>
+                                            <td class="action">
 {{--                                                @if (hasPermission('events.edit'))--}}
                                                     <a href="{{ route('events.edit', $event->id) }}"
                                                         class="btn btn-sm btn-info" title="Update event">
